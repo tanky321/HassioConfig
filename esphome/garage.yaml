@@ -1,0 +1,65 @@
+esphome:
+  name: garage
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "Aviator"
+  password: "SN74HC04n"
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "May$141986"
+
+ota:
+  password: "May$141986"
+  
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff 4CH Button 1"
+  - platform: gpio
+    pin:
+      number: GPIO9
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff 4CH Button 2"
+  - platform: gpio
+    pin:
+      number: GPIO10
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff 4CH Button 3"
+  - platform: gpio
+    pin:
+      number: GPIO14
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Sonoff 4CH Button 4"
+  - platform: status
+    name: "Sonoff 4CH Status"
+  
+switch:
+  - platform: gpio
+    name: "Garage Relay 1"
+    pin: GPIO12
+  - platform: gpio
+    name: "Garage Relay 2"
+    pin: GPIO5
+  - platform: gpio
+    name: "Garage Relay 3"
+    pin: GPIO4
+ # - platform: gpio
+ #   name: "Garage Relay 4"
+ #   pin: GPIO15
+    
+status_led:
+  pin: 
+    number: 15
+    inverted: True

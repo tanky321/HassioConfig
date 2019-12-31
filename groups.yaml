@@ -1,0 +1,6 @@
+
+  motion_sensors:
+    name: Motion Sensors
+    entities:
+      - binary_sensor.front_door_motion
+      - sensor.front_door_motion_sensor_battery

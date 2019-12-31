@@ -1,0 +1,24 @@
+
+  - name: Front_Door_Lights
+    entities:
+      light.front_exterior_lights:
+        state : true
+        brightness: 50
+        
+  - name: Front_Door_Lights_Max_Brightness
+    entities:
+      light.front_exterior_lights:
+        state : true
+        brightness: 255
+        
+  - name: garage_accents
+    entities:
+      light.garage_accent_lights:
+        state: true
+        brightness: 50
+        
+  - name: BackDoorLights
+    entities:
+      light.backdoorlight:
+        state: true
+        brightness: 100

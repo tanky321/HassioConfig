@@ -1,0 +1,52 @@
+##
+## Main arguments, all optional
+##
+title: Main Panel
+widget_dimensions: [120, 114]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+      media_player:
+        step: 5
+skin: glassic
+
+clock:
+    widget_type: clock
+gate:
+    widget_type: binary_sensor
+    title: Gate
+    entity: binary_sensor.pin_gpio2
+supplytemp:
+    widget_type: sensor
+    title: HVAC Supply
+    entity: sensor.tc1
+ambienttemp:
+    widget_type: sensor
+    title: HVAC Ambient
+    entity: sensor.tc2
+returntemp:
+    widget_type: sensor
+    title: HVAC Return
+    entity: sensor.tc3
+hvacstatus:
+    widget_type: binary_sensor
+    title: HVAC Monitor
+    entity: binary_sensor.hvac_monitor_status
+hvacpressure:
+    widget_type: sensor
+    title: HVAC Pressure
+    units: "inH2O"
+    precision: 2
+    entity: sensor.sdp1pressure
+layout:
+    - clock(2x1), sensor.gate, spacer, spacer, spacer, weather.home(2x2)
+    - light.bedroom_light, switch.livingroom_lamp
+    - light.garage_accent_lights, light.backdoorlight
+    - light.front_exterior_lights,light.fishtank_light, spacer, spacer, spacer, spacer, sensor.glances_cpu_temp,sensor.glances_cpu_used
+    - supplytemp, returntemp, ambienttemp, hvacpressure, sensor.hvac, hvacstatus, spacer

@@ -1,0 +1,50 @@
+esphome:
+  name: fishtank
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: "Aviator"
+  password: "SN74HC04n"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Fishtank Fallback Hotspot"
+    password: "9iVxzqslQh7o"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+light:
+  - platform: fastled_clockless
+    chipset: WS2811
+    pin: GPIO5
+    num_leds: 36
+    rgb_order: BRG
+    name: "Fishtank Light"
+
+  - platform: monochromatic
+    name: "Fishtank White Light"
+    output: output_component1
+    
+output:
+  - platform: esp8266_pwm
+    id: output_component1
+    pin: GPIO16
+    
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO14
+      inverted: True
+      mode: INPUT_PULLUP
+    filters:
+      - delayed_on: 250ms
+    name: "Fishtank Blue Light Request"      
