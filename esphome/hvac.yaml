@@ -7,7 +7,7 @@ esphome:
 
 wifi:
   ssid: "Aviator"
-  password: "SN74HC04n"
+  password: "password"
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
